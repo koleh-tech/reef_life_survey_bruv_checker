@@ -17,7 +17,8 @@ def server(input, output, session):
     def txt():
         if not input.file():
             return "Please upload a file"
-        bruv_data_frames = BRUVDataFramesFromExcelFile(input.file()[0]["datapath"])
+        filename = input.file()[0]["datapath"]
+        bruv_data_frames = BRUVDataFramesFromExcelFile(filename)
         return main(bruv_data_frames)
 
 app = App(app_ui, server)
